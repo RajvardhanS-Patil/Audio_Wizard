@@ -1,0 +1,27 @@
+#pragma once
+
+#include <raylib.h>
+#include <vector>
+#include <string>
+
+struct VisualNodeInfo {
+    std::string label;
+    Color color{WHITE};
+    bool active{true};
+};
+
+class LinkedListVisualizer {
+public:
+    LinkedListVisualizer();
+
+    void draw(int x, int y, const std::vector<VisualNodeInfo>& nodes, bool isReversed = false) const;
+    void setMessage(const std::string& msg, float duration = 3.5f);
+    void update(float deltaTime);
+
+    bool hasMessage() const { return m_messageTimer > 0.0f; }
+    const std::string& getMessage() const { return m_message; }
+
+private:
+    std::string m_message{""};
+    float m_messageTimer{0.0f};
+};

@@ -9,9 +9,17 @@ void InputManager::update() {
 }
 
 bool InputManager::isKeyDown(int key) const {
-    return IsKeyDown(key);
+    return ::IsKeyDown(key);
 }
 
 bool InputManager::isKeyPressed(int key) const {
-    return IsKeyPressed(key);
+    return ::IsKeyPressed(key);
+}
+
+bool InputManager::isMouseButtonPressed(int button) const {
+    return ::IsMouseButtonPressed(button);
+}
+
+Vector2 InputManager::getMousePosition() const {
+    return ::GetMousePosition();
 }
